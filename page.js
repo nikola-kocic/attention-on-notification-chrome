@@ -1,10 +1,11 @@
-window.originalNotification = window.Notification;
+"use strict";
 
-window.Notification = function(title, options) {
-  window.postMessage({ type: "NOTIFICATION_SHOWN" }, "*");
-  //console.log("sent NOTIFICATION_SHOWN");
+class AttentionNotification extends window.Notification {
+  constructor() {
+    window.postMessage({ type: "NOTIFICATION_SHOWN" }, "*");
+    //console.log("sent NOTIFICATION_SHOWN");
+    return super(...arguments);
+  }
+}
 
-  return new window.originalNotification(title, options);
-};
-
-window.Notification.prototype = window.originalNotification.prototype;
+window.Notification = AttentionNotification;

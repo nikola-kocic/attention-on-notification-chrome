@@ -1,3 +1,5 @@
+"use strict";
+
 function drawWindowAttention(request, sender, callback) {
   if (sender.tab) {
     var winid = sender.tab.windowId;
