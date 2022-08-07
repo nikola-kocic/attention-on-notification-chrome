@@ -2,7 +2,7 @@
 
 // Inject page.js into the actual page's DOM so we can interact with said page
 var s = document.createElement("script");
-s.src = chrome.extension.getURL("page.js");
+s.src = chrome.runtime.getURL("page.js");
 s.type = "text/javascript";
 (document.head || document.documentElement).appendChild(s);
 
